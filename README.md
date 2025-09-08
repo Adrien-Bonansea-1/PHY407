@@ -1,2 +1,2 @@
 # PHY407
-Phy407 course at UofT with Prof Nicholas Grisouard
+Phy407 course at UofT under Prof Nicholas Grisouard
