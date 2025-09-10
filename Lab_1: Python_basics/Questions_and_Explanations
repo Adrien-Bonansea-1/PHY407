@@ -1,4 +1,17 @@
 Q1
 A)
 
+B)
+Define Constants G and Ms
+Define Initial Conditions: x, y, Vx, and Vy
+Convert Units of Initial conditions to Si
+Initialize end_time and dt
+Convert Units of time
+While t is smaller than t_end
+    Increment x, y, Vx, Vy with previous values using euler chromer. Compute Vx and Vy first for euler cromer
+Plot Velocity vs Time graph
+Plot x vx y graph
+
+
+
 
