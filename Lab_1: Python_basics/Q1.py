@@ -18,11 +18,12 @@ x = float(0.47)
 y = float(0)
 Vx = float(0)
 Vy = float(8.17)
-V = np.sqrt(Vx**2 + Vy**2)
+
 
 #Conversions:
 x = x * (1.496 * 10**11)
 Vy = Vy * (1.496 * 10**11)/(3.156 * 10**7)
+V = np.sqrt(Vx**2 + Vy**2)
 
 #Define dt:
 current_t = 0
@@ -88,12 +89,15 @@ y_list.append(y)
 v_list.append(V)
 
 while current_t <= t_end:
-    Fx = -G * Ms * Mp / (np.sqrt(x ** 2 + y ** 2)) ** 3 * (1 + alpha / (np.sqrt(x ** 2 + y ** 2)) ** 2) * x
-    Fy = -G * Ms * Mp / (np.sqrt(x ** 2 + y ** 2)) ** 3 * (1 + alpha / (np.sqrt(x ** 2 + y ** 2)) ** 2) * y
-    Vx = Vx + Fx * dt
-    Vy = Vy + Fy * dt
+    r = np.sqrt(x ** 2 + y ** 2)
+    F = (-G * Ms * Mp / r ** 3)
+    Fx = F * (1 + alpha / r ** 2) * x
+    Fy = F * (1 + alpha / r ** 2) * y
+    Vx = Vx + Fx * dt / Mp
+    Vy = Vy + Fy * dt / Mp
     x = x + Vx * dt
     y = y + Vy * dt
+    print(x,y)
 
     time_list.append(current_t)
     x_list.append(x)
@@ -103,13 +107,32 @@ while current_t <= t_end:
 
     current_t += dt
 
+x_arr = np.array(x_list)
+y_arr = np.array(y_list)
+r_arr = np.sqrt(x_arr**2 + y_arr**2)
+
+aphelion_x = []
+aphelion_y = []
+
+for i in range(1, len(r_arr)-1):
+    if r_arr[i] > r_arr[i-1] and r_arr[i] > r_arr[i+1]:
+        aphelion_x.append(x_arr[i])
+        aphelion_y.append(y_arr[i])
+
+
 plt.figure(figsize=(6,6))
 plt.plot(x_list, y_list)
 plt.xlabel("x (m)")
 plt.ylabel("y (m)")
 plt.title("Mercury orbit with relativity")
 plt.scatter(0,0, color="blue", marker="o", label="Central mass")
+plt.scatter(aphelion_x, aphelion_y, color="red", marker="o", label="aphelions locations")
 plt.legend()
 plt.axis("equal")
 plt.grid()
 plt.show()
+print(len(aphelion_x))
+for i in range(len(aphelion_x)):
+    r = np.sqrt(aphelion_x[i] ** 2 + aphelion_y[i] ** 2)
+    print(r)
+
