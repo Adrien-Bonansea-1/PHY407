@@ -31,9 +31,9 @@ va = np.sqrt(vxa**2 + vya**2)
 # Initialize start time, end time, and dt
 t_current = 0
 dt = 0.0001 * yr
-# t_end = 10 * yr # --> For 2a
+t_end = 10 * yr # --> For 2a
 # t_end = 3 * yr # --> For 2b
-t_end = 20 * yr # --> For 2c
+# t_end = 20 * yr # --> For 2c
 
 # Initialize storage
 time_list, xj_list, yj_list, vj_list, xe_list, ye_list, ve_list, xa_list, ya_list, va_list = [], [], [], [], [], [], [], [], [], []
@@ -95,8 +95,8 @@ ya_list = [item / AU for item in ya_list]
 
 plt.figure(figsize=(6,6))
 plt.plot(xj_list, yj_list, color="orange", label="Jupiter")
-# plt.plot(xe_list, ye_list, color="blue", label="Earth") # --> For 2a and 2b
-plt.plot(xa_list, ya_list, color="green", label="Asteroid") # --> For 2c
+plt.plot(xe_list, ye_list, color="blue", label="Earth") # --> For 2a and 2b
+# plt.plot(xa_list, ya_list, color="green", label="Asteroid") # --> For 2c
 plt.xlabel("x (AU)")
 plt.ylabel("y (AU)")
 plt.title("Three Body Problem")
