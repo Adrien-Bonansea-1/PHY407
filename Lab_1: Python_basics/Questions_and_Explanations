@@ -8,10 +8,31 @@ Convert Units of Initial conditions to Si
 Initialize end_time and dt
 Convert Units of time
 While t is smaller than t_end
-    Increment x, y, Vx, Vy with previous values using euler chromer. Compute Vx and Vy first for euler cromer
+    Increment x, y, Vx, and Vy with their previous values using Euler-Cromer. Compute Vx and Vy first for Euler-Cromer
 Plot Velocity vs Time graph
 Plot x vx y graph
 
+
+Q2
+A) What to Submit: Pseudocode, Code, and Plot showing both Earth's and Jupiter's orbits
+Pseudocode:
+Define constants Ms, G, Mj, and the conversion of 1 AU to meters
+Define initial conditions, i.e., the coordinates and velocities for both Earth and Jupiter
+Initialize current_time, end_time, and dt
+While current_time is less than end_time
+    Increment the locations (xj and yj) and velocities (Vxj and Vyj) of Jupiter using Euler-Cromer
+    Store the new coordinates of Jupiter
+    Calculate the distance between the Earth and Jupiter's new location
+    Increment the locations (xe and ye) and velocities (Vxe and Vye) of Earth using Euler-Cromer
+    Store the new coordinates of the Earth
+    Increment current_time by dt
+Plot both Earth's and Jupiter's orbits
+
+B) What to Submit: Plot showing both Earth's and Jupiter's orbits and A Written Explanation
+Explanation:
+...
+
+C) What to Submit: Plot showing both the asteroid's and Jupiter's orbits
 
 
 
