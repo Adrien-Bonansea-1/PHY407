@@ -1,3 +1,16 @@
+# Pseudocode:
+# Define constants Ms, G, Mj, and the conversion of 1 AU to meters
+# Define initial conditions, i.e., the coordinates and velocities for both Earth and Jupiter
+# Initialize current_time, end_time, and dt
+# While current_time is less than end_time
+#     Increment the locations (xj and yj) and velocities (Vxj and Vyj) of Jupiter using Euler-Cromer
+#     Store the new coordinates of Jupiter
+#     Calculate the distance between the Earth and Jupiter's new location
+#     Increment the locations (xe and ye) and velocities (Vxe and Vye) of Earth using Euler-Cromer
+#     Store the new coordinates of the Earth
+#     Increment current_time by dt
+# Plot both Earth's and Jupiter's orbits
+
 # Import dependencies
 import numpy as np
 import matplotlib.pyplot as plt
@@ -104,3 +117,4 @@ plt.scatter(0, 0, color="yellow", marker="o", label="Sun")
 plt.legend(loc='upper right') 
 plt.grid()
 plt.show()
+
