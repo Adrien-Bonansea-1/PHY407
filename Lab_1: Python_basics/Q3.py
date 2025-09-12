@@ -77,6 +77,7 @@ plt.ylabel("Time taken (seconds)")
 plt.title("Execution Time vs Number of Random Numbers")
 plt.grid(True, which="both", ls="--", lw=0.5)
 plt.show()
+# very good and clear log graph
 
 #With hist bins
 nums = np.array([10, 100, 1000, 10000, 100000, 1000000])
@@ -92,5 +93,5 @@ plt.ylim(0, 1)
 plt.title("Execution Time vs Number of Random Numbers (Fixed Bins)")
 plt.grid(True, which="both", ls="--", lw=0.5)
 plt.show()
-
+# very little and not significant increase in time taken as we increase the num of nums exponentially.
 

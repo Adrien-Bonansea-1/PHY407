@@ -1,3 +1,4 @@
+# Q2:
 # Pseudocode:
 # Define constants Ms, G, Mj, and the conversion of 1 AU to meters
 # Define initial conditions, i.e., the coordinates and velocities for both Earth and Jupiter
@@ -31,6 +32,7 @@ ye = 0.0 * AU
 xa = 3.3 * AU
 ya = 0.0 * AU
 
+#Conversions
 vxj = 0.0 * AU/yr
 vyj = 2.63 * AU/yr
 vj = np.sqrt(vxj**2 + vyj**2)
