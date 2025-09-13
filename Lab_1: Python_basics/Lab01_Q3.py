@@ -11,7 +11,7 @@
 # For manually-created histogram:
 #   Start timing
 #   Generate the bins
-#   Define count = 0
+#   Create count as a list of 0s
 #   Loop over each number in the random samples:
 #       Loop over each bin:
 #           Check if the number is within the bin, if yes:
