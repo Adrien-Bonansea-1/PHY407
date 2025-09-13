@@ -188,15 +188,15 @@ while current_t <= t_end:
     current_t += dt
 
 # Convert lists to arrays
-r_arr = np.sqrt((np.array(x_list))**2 + (np.array(y_list))**2)
+r = np.sqrt((np.array(x_list))**2 + (np.array(y_list))**2)
 
 # Initialize storage for aphelion's position
 aphelion_x, aphelion_y = [], []
 
 # Find the aphelion
 i = 0
-while i < len(r_arr):
-    if r_arr[i] > r_arr[i-1] and r_arr[i] > r_arr[i+1]:
+while i < len(r):
+    if r[i] > r[i-1] and r[i] > r[i+1]:
         aphelion_x.append(x_list[i])
         aphelion_y.append(y_list[i])
     i += 1
@@ -213,4 +213,5 @@ plt.legend()
 plt.axis("equal")
 plt.grid()
 plt.savefig("Mercury Orbit GR")
+
 plt.show()
