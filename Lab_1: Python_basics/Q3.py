@@ -11,31 +11,30 @@ import time
 start = time.time()
 '''
 
-N = 100
-Bin_edges = np.linspace(-5, 5, num=1000)
-list_for_bins = [[] for _ in range(len(Bin_edges)-1)]
+N = 1000
+bins = np.linspace(-5, 5, num=1001)  # match np.histogram
 
 nums = np.random.randn(N)
 
+counts = []
+for i in range(len(bins) - 1):
+    counts.append(0)
+
 for num in nums:
-    for i in range(len(Bin_edges)-1):
-        if Bin_edges[i] < num <= Bin_edges[i+1]:
-            list_for_bins[i].append(num)
+    i = 0
+    while i < len(bins):
+        if bins[i] <= num < bins[i + 1]:
+            counts[i] += 1
             break
+    i += 1
 
-flattened = []
-for sublist in list_for_bins:
-    for item in sublist:
-        flattened.append(item)
-
-
-plt.figure(figsize=(6,6))
-#plt.hist(flattened, bins=Bin_edges, width=0.02)
-plt.bar(Bin_edges[:-1], flattened, width=0.02)
+plt.figure(figsize=(6, 6))
+plt.bar(bins[:-1], counts, width=0.01)
 plt.xlabel("Value")
 plt.ylabel("Count")
-plt.title("Histogram of Gaussian Numbers using plt.hist()")
+plt.title("Histogram (Manual)")
 plt.show()
+
 
 '''
 end = time.time()
@@ -55,10 +54,10 @@ print(end - start)
 start = time.time()
 '''
 
-counts, bin_edges = np.histogram(nums, bins=1000, range=(-5, 5))
+counts, bins = np.histogram(nums, bins=1000, range=(-5, 5))
 
 plt.figure(figsize=(6,6))
-plt.bar(bin_edges[:-1], counts, width=0.02)
+plt.bar(bins[:-1], counts, width=0.02)
 plt.xlabel("Value")
 plt.ylabel("Count")
 plt.title("Histogram of Gaussian Numbers using np.histogram")

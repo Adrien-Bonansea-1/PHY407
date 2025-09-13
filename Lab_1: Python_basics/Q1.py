@@ -18,21 +18,16 @@ Vx = float(0)
 Vy = float(8.17)
 V = np.sqrt(Vx**2 + Vy**2)
 
-
 #Conversions:
 x = x * (1.496 * 10**11)
 Vy = Vy * (1.496 * 10**11)/(3.156 * 10**7)
-
-
 
 #Define dt:
 current_t = 0
 dt = 0.0001 * (3.156 * 10**7)
 t_end = 3.156 * 10**7 #1 year in s
 
-
 time_list, x_list, y_list, v_list = [], [], [], []
-
 
 #Store initial
 time_list.append(current_t)
@@ -40,13 +35,11 @@ x_list.append(x)
 y_list.append(y)
 v_list.append(V)
 
-
 while current_t <= t_end:
     Vx = Vx + (-G * Ms * x / (np.sqrt(x**2 + y**2))**3) * dt
     Vy = Vy + (-G * Ms * y / (np.sqrt(x**2 + y**2))**3) * dt
     x = x + Vx * dt
     y = y + Vy * dt
-
 
     time_list.append(current_t)
     x_list.append(x)
@@ -54,10 +47,7 @@ while current_t <= t_end:
     V = np.sqrt(Vx ** 2 + Vy ** 2)
     v_list.append(V)
 
-
     current_t += dt
-
-
 
 plt.figure(figsize=(10,5))
 plt.plot(time_list, v_list)
@@ -70,7 +60,6 @@ plt.legend()
 plt.ylim(30000,60000)
 plt.savefig("Velocity vs Time")
 plt.show()
-
 
 plt.figure(figsize=(6,6))
 plt.plot(x_list, y_list)
@@ -96,7 +85,6 @@ x = float(0.47)
 y = float(0)
 Vx = float(0)
 Vy = float(8.17)
-
 
 #Conversions:
 x = x * (1.496 * 10**11)
@@ -129,7 +117,7 @@ while current_t <= t_end:
     Vy = Vy + Fy * dt / Mp
     x = x + Vx * dt
     y = y + Vy * dt
-    print(x,y)
+    #print(x,y)
 
     time_list.append(current_t)
     x_list.append(x)
@@ -139,17 +127,14 @@ while current_t <= t_end:
 
     current_t += dt
 
-x_arr = np.array(x_list)
-y_arr = np.array(y_list)
-r_arr = np.sqrt(x_arr**2 + y_arr**2)
+r = np.sqrt((np.array(x_list))**2 + (np.array(y_list))**2)
 
-aphelion_x = []
-aphelion_y = []
+aphelion_x, aphelion_y = [], []
 
-for i in range(1, len(r_arr)-1):
-    if r_arr[i] > r_arr[i-1] and r_arr[i] > r_arr[i+1]:
-        aphelion_x.append(x_arr[i])
-        aphelion_y.append(y_arr[i])
+for i in range(1, len(r)-1):
+    if r[i] > r[i-1] and r[i] > r[i+1]:
+        aphelion_x.append(x_list[i])
+        aphelion_y.append(y_list[i])
 
 
 plt.figure(figsize=(6,6))
@@ -164,8 +149,10 @@ plt.axis("equal")
 plt.grid()
 plt.savefig("Mercury orbit with relativity.png")
 plt.show()
+
 print(len(aphelion_x))
 for i in range(len(aphelion_x)):
     r = np.sqrt(aphelion_x[i] ** 2 + aphelion_y[i] ** 2)
     print(r)
 
+print(type(aphelion_x))
