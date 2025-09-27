@@ -308,6 +308,7 @@ plt.ylabel("max errors")
 plt.title("")
 plt.legend()
 plt.grid(True, which="both", ls="--", linewidth=0.5)
+plt.savefig("Q1b_intensities_max_error.png")
 plt.show()
 
 print("PART C __________________________________")
