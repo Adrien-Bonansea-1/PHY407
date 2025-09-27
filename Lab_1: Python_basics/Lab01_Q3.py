@@ -35,7 +35,7 @@ import matplotlib.pyplot as plt
 from time import time
 
 # Generate the amount of random samples (N = 10, 100, 1000, 10,000, 100,000, and 1,000,000)
-N = 10
+N = 1000
 nums = np.random.randn(N)
 
 # Building histogram manually
