@@ -265,3 +265,4 @@ plt.legend()
 plt.legend()
 plt.savefig("Q1c_Vs_2.png")
 plt.show()
+
