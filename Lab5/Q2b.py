@@ -155,4 +155,4 @@ new_data = np.empty(data.shape, dtype=data.dtype)
 new_data[:, 0] = dat_1_filtered.astype(data.dtype)
 new_data[:, 1] = dat_2_filtered.astype(data.dtype)
 
-write('GraviteaTime_changed.wav', sample_rate, new_data)
+write('GraviteaTime_lpf.wav', sample_rate, new_data)
