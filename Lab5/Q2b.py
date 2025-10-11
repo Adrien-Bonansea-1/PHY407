@@ -9,7 +9,7 @@ dat_2 = data[:, 1]
 
 time = np.arange(len(dat_1)) / sample_rate
 
-plt.figure(figsize=(10, 10))
+plt.figure(figsize=(10, 12))
 
 plt.subplot(2, 1, 1)
 plt.plot(time, dat_1)
